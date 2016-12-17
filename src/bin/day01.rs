@@ -3,23 +3,7 @@ use std::fmt;
 use std::io::prelude::*;
 use std::io::{self};
 
-#[derive(Hash, Eq, PartialEq, Debug, Copy, Clone)]
-struct Point {
-    x: i32,
-    y: i32,
-}
-
-impl fmt::Display for Point {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "x: {}, y: {}", self.x, self.y)
-    }
-}
-
-impl Point {
-    fn manhattan_distance(&self, to: Point) -> i32 {
-        (self.x - to.x).abs() + (self.y - to.y).abs()
-    }
-}
+extern crate aoc16;
 
 enum Cardinal {
     North,
@@ -70,10 +54,10 @@ fn main() {
 
     let _ = io::stdin().read_to_string(&mut input);
 
-    let start_pos = Point {x: 0, y: 0};
+    let start_pos = aoc16::Point {x: 0, y: 0};
     let mut facing = Cardinal::North;
-    let mut pos = Point {x: 0, y: 0};
-    let mut double_visit: Option<Point> = None;
+    let mut pos = aoc16::Point {x: 0, y: 0};
+    let mut double_visit: Option<aoc16::Point> = None;
     let mut visited = HashMap::new();
 
     for instruction in input.split(",") {

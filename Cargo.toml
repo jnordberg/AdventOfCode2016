@@ -1,5 +1,5 @@
 [package]
-name = "adventofcode2016"
+name = "aoc16"
 version = "0.1.0"
 authors = ["Johan Nordberg <its@johan-nordberg.com>"]
 
